@@ -1,41 +1,41 @@
 settings =
 {
-	--[[
-	orientation = {
-		default = "portrait", 
-		supported = { "portrait", },
-		-- supported = { "landscapeLeft", "landscapeRight" },
-		-- supported = { "landscapeLeft", "landscapeRight", "portrait", "portraitUpsideDown", },
-	},
-	--]]
-
 	iphone =
 	{
 		plist =
-		{
-			-- UIApplicationExitsOnSuspend = true, -- default is false
-			CFBundleIconFile = "Icon.png",
-			NSMicrophoneUsageDescription = "testing",
-			NSSpeechRecognitionUsageDescription="Speech recognition will be used to determine which words you speak into this device's microphone.",
-			CFBundleIconFiles =
-			{
-				"Icon.png", 
-				"Icon@2x.png", 
-				"Icon-60.png",
-				"Icon-60@2x.png",
-				"Icon-60@3x.png",
-				"Icon-72.png", 
-				"Icon-72@2x.png",
-				"Icon-76.png",
-				"Icon-76@2x.png", 
-				"Icon-Small.png", 
-				"Icon-Small@2x.png",
-				"Icon-Small@3x.png",
-				"Icon-Small-40.png",
-				"Icon-Small-40@2x.png",
-				"Icon-Small-50.png", 
-				"Icon-Small-50@2x.png",
-			},
-		},
-	}
+        {
+            MinimumOSVersion = "7.0",
+            UIApplicationExitsOnSuspend = false,
+            FacebookAppID = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
+            CFBundleURLTypes =
+            {
+                { CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
+            },
+            -- Whitelist Facebook apps
+            LSApplicationQueriesSchemes =
+            {
+                "fb",  -- Needed for the facebook-v4.isFacebookAppEnabled() API
+                "fbapi",
+                "fbauth2",
+                "fb-messenger-api",
+                "fbshareextension"
+            },
+        },
+	},
+	android =
+    {
+    	usesPermissions =
+    	{
+        	"android.permission.INTERNET"
+    	},
+        facebookAppId = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
+    },
+    plugins =
+    {
+        ["plugin.facebookAnalytics"] =
+        {
+            publisherId = "com.scottrules44",
+            supportedPlatforms = { iphone=true, android=true, ["android-kindle"]=true }
+        },
+    },
 }
