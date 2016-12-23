@@ -4,7 +4,7 @@ settings =
 	{
 		plist =
         {
-            MinimumOSVersion = "7.0",
+            MinimumOSVersion = "8.0",
             UIApplicationExitsOnSuspend = false,
             FacebookAppID = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
             CFBundleURLTypes =
