@@ -1,18 +1,7 @@
 local facebookAnalytics = require "plugin.facebookAnalytics"
 facebookAnalytics.init()
 --facebookAnalytics.debug()
-math.randomseed( os.time() )
-local udid = ""
-if system.getPreference( "app", "udid", "string" ) and system.getPreference( "app", "udid", "string" ) ~= "udid" then
-        udid = system.getPreference( "app", "udid", "string" )
-else
-        for i=1,20 do
-                local tempNum = math.floor( math.random()*10 ) -- 0-9
-                udid = udid..i
-        end
-        system.setPreferences( "app", {udid= udid} )
-end
-facebookAnalytics.setUserID(udid)
+
 
 local widget = require("widget")
 
@@ -50,16 +39,3 @@ eventLog2 = widget.newButton( {
         end
 } )
 eventLog2:setFillColor(1)
-local eventLog3
-eventLog3 = widget.newButton( {
-        x = display.contentCenterX,
-        y = display.contentCenterY+140,
-        labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-        id = "log3",
-        label = "Set User Properties",
-        onEvent = function ( e )
-                if (e.phase == "ended") then
-                        facebookAnalytics.setUserProperties({gender = "f"--[[f == female, m = male]], shoeSize = 9})
-                end
-        end
-} )
