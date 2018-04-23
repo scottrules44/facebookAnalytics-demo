@@ -32,6 +32,10 @@ settings =
     },
     plugins =
     {
+    	--or use v4a
+    	['plugin.facebook.v4'] = {
+			publisherId = 'com.coronalabs'
+	},
         ["plugin.facebookAnalytics"] =
         {
             publisherId = "com.scottrules44",
