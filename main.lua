@@ -1,5 +1,5 @@
 local facebookAnalytics = require "plugin.facebookAnalytics"
-facebookAnalytics.init()
+facebookAnalytics.init("Insert FB App id here")
 --facebookAnalytics.debug()
 
 
